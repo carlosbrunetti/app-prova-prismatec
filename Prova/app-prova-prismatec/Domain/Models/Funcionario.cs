@@ -14,6 +14,7 @@ namespace app_prova_prismatec.Domain.Models
 
         public Guid IdEmpresa { get; private set; }
 
+        #region Construtor
         public Funcionario(Guid id, string cpf, string nome, Guid idEmpresa)
         {
             this.Id = id;
@@ -21,12 +22,16 @@ namespace app_prova_prismatec.Domain.Models
             this.Nome = nome;
             this.IdEmpresa = idEmpresa;
         }
+        #endregion
 
+        #region Métodos
+        //Altera os atributos do funcionário
         public void Alterar(string cpf, string nome, Guid idEmpresa)
         {
             this.Cpf = cpf;
             this.Nome = nome;
             this.IdEmpresa = idEmpresa;
         }
+        #endregion
     }
 }

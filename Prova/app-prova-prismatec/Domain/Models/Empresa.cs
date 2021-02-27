@@ -19,6 +19,8 @@ namespace app_prova_prismatec.Domain.Models
 
         public string Telefone { get; private set; }
         public IEnumerable<Funcionario> Funcionarios { get; private set; }
+
+        #region Construtor
         public Empresa(Guid id, string cnpj, string razaoSocial, string nomeFantasia, string telefone, IEnumerable<Funcionario> funcionarios)
         {
             this.Id = id;
@@ -28,7 +30,10 @@ namespace app_prova_prismatec.Domain.Models
             this.Telefone = telefone;
             this.Funcionarios = funcionarios;
         }
+        #endregion
 
+        #region Métodos
+        //Altera os atributos da empresa
         public void Alterar(string cnpj, string razaoSocial, string nomeNomeFantasia, string telefone)
         {
             this.Cnpj = cnpj;
@@ -37,14 +42,11 @@ namespace app_prova_prismatec.Domain.Models
             this.Telefone = telefone;            
         }
 
-        public string VerificarCodigoDDD(List<string> ddd)
+        //Método que verifica se o DDD é do RS
+        public bool VerificarCodigoDDD(List<string> ddd)
         {
-            var localidadeDDD = this.Telefone.Substring(0, 2);
-            if (ddd.Contains(localidadeDDD))
-                return $"O DDD '{localidadeDDD}' pertence ao RS.";
-
-            return $"O DDD '{localidadeDDD}' não pertence ao RS.";
+            return ddd.Contains(this.Telefone.Substring(0, 2));         
         }
-
+        #endregion
     }
 }

@@ -25,12 +25,13 @@ namespace app_prova_prismatec
 
             _Logger.ImprimirLog("Alterando os valores das entidades...");
             empresaService.Alterar("84166365099999", "Cláudio e Heitor Ltda", "Supermercado Dois Irmãos", "5128904886");
+            _alterarFuncionario(empresa);
             _Logger.ImprimirLog("Valores alterados.");
 
             _Logger.ImprimirLog("Gerando o novo arquivo com as alterações feitas nas entidades...");
             empresaService.CriarArquivo();
             _Logger.ImprimirLog("Arquivo gerado com as alterações dos valores das entidades.");
-
+            
             _Logger.ImprimirLog("Verificando se a localidade do telefone infomado pertence ao RS...");
             _Logger.ImprimirLog(empresaService.VerificarDDD());
 
@@ -49,6 +50,8 @@ namespace app_prova_prismatec
 
         }
 
+        #region Metodos
+        //Método que cria e popula o funcionario
         private static IList<Funcionario> _popularFuncionario(Guid empresa)
         {
             return new List<Funcionario>()
@@ -57,12 +60,16 @@ namespace app_prova_prismatec
             };
         }
 
-        private static void _alterarFuncionario(Funcionario funcionario, Guid idEmpresa)
+        //Método que altera o funcionário
+        private static void _alterarFuncionario(Empresa empresa)
         {
-            funcionario.Alterar("45974325619", "João da Silva", idEmpresa);
+            foreach (var item in empresa.Funcionarios)
+            {
+                item.Alterar("42536741595", "João da Silva", empresa.Id);
+            }
         }
 
-
+        //Método que cria e popula a empresa vinculando o funcionário a empresa
         private static Empresa _popularEmpresa()
         {
             var idEmpresa = Guid.NewGuid();
@@ -70,5 +77,6 @@ namespace app_prova_prismatec
             var empresa = new Empresa(idEmpresa, "84166365000180", "Cláudio e Heitor Alimentos Ltda", "Supermercado Passarinho", "1128904886", funcionarios);
             return empresa;
         }
+        #endregion
     }
 }
