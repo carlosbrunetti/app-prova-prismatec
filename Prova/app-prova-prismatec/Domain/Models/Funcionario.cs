@@ -1,5 +1,6 @@
 ﻿using app_prova_prismatec.Domain.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace app_prova_prismatec.Domain.Models
 {

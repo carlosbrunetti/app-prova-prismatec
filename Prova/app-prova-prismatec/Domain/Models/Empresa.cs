@@ -18,11 +18,8 @@ namespace app_prova_prismatec.Domain.Models
         public string NomeFantasia { get; private set; }
 
         public string Telefone { get; private set; }
-
         public IEnumerable<Funcionario> Funcionarios { get; private set; }
-
-        public Empresa(Guid id, string cnpj, string razaoSocial, string nomeFantasia, string telefone
-            , IEnumerable<Funcionario> funcionarios)
+        public Empresa(Guid id, string cnpj, string razaoSocial, string nomeFantasia, string telefone, IEnumerable<Funcionario> funcionarios)
         {
             this.Id = id;
             this.Cnpj = cnpj;
@@ -30,14 +27,14 @@ namespace app_prova_prismatec.Domain.Models
             this.NomeFantasia = nomeFantasia;
             this.Telefone = telefone;
             this.Funcionarios = funcionarios;
-        }   
+        }
 
         public void Alterar(string cnpj, string razaoSocial, string nomeNomeFantasia, string telefone)
         {
             this.Cnpj = cnpj;
             this.RazaoSocial = razaoSocial;
             this.NomeFantasia = nomeNomeFantasia;
-            this.Telefone = telefone;
+            this.Telefone = telefone;            
         }
 
         public string VerificarCodigoDDD(List<string> ddd)

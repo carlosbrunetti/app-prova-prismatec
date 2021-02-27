@@ -1,4 +1,5 @@
-﻿using System;
+﻿using app_prova_prismatec.Domain.Models;
+using System;
 using System.Collections.Generic;
 
 namespace app_prova_prismatec.Domain.Interfaces
@@ -16,7 +17,6 @@ namespace app_prova_prismatec.Domain.Interfaces
         string Telefone { get;}
 
         IEnumerable<IFuncionario> Funcionarios { get;}
-
         void Alterar(string cnpj, string razaoSocial, string nomeNomeFantasia, string telefone);
         string VerificarCodigoDDD(List<string> ddd);
     }

@@ -1,4 +1,7 @@
 ﻿
+using app_prova_prismatec.Domain.Models;
+using System.Collections.Generic;
+
 namespace app_prova_prismatec.Services.Interfaces
 {
     public interface IEmpresaService
