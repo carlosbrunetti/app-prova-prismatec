@@ -11,31 +11,31 @@ namespace app_prova_prismatec
     {
         static void Main(string[] args)
         {
-            _Logger.CriarLogger();
-            _Logger.ImprimirLog("Iniciando...");
+            Logger.CriarLogger();
+            Logger.ImprimirLog("Iniciando...");
 
-            var empresa = _popularEmpresa();
+            var empresa = popularEmpresa();
             var empresaService = new EmpresaService(empresa);
-            _Logger.ImprimirLog("Criando e populando a entidade empresa e funcionario.");
+            Logger.ImprimirLog("Criando e populando a entidade empresa e funcionario.");
 
 
-            _Logger.ImprimirLog("Gerando arquivo...");
+            Logger.ImprimirLog("Gerando arquivo...");
             empresaService.CriarArquivo();
-            _Logger.ImprimirLog("Arquivo gerado.");
+            Logger.ImprimirLog("Arquivo gerado.");
 
-            _Logger.ImprimirLog("Alterando os valores das entidades...");
+            Logger.ImprimirLog("Alterando os valores das entidades...");
             empresaService.Alterar("84166365099999", "Cláudio e Heitor Ltda", "Supermercado Dois Irmãos", "5128904886");
-            _alterarFuncionario(empresa);
-            _Logger.ImprimirLog("Valores alterados.");
+            alterarFuncionario(empresa);
+            Logger.ImprimirLog("Valores alterados.");
 
-            _Logger.ImprimirLog("Gerando o novo arquivo com as alterações feitas nas entidades...");
+            Logger.ImprimirLog("Gerando o novo arquivo com as alterações feitas nas entidades...");
             empresaService.CriarArquivo();
-            _Logger.ImprimirLog("Arquivo gerado com as alterações dos valores das entidades.");
+            Logger.ImprimirLog("Arquivo gerado com as alterações dos valores das entidades.");
             
-            _Logger.ImprimirLog("Verificando se a localidade do telefone infomado pertence ao RS...");
-            _Logger.ImprimirLog(empresaService.VerificarDDD());
+            Logger.ImprimirLog("Verificando se a localidade do telefone infomado pertence ao RS...");
+            Logger.ImprimirLog(empresaService.VerificarDDD());
 
-            _Logger.ImprimirLog("Finalizado...");
+            Logger.ImprimirLog("Finalizado...");
             Console.ReadKey();
 
             //TODO: Conforme a abordagem Domain Driven Design, crie uma instância e utilize a entidade "Empresa" e "Funcionario", populando suas propriedades.
@@ -52,7 +52,7 @@ namespace app_prova_prismatec
 
         #region Metodos
         //Método que cria e popula o funcionario
-        private static IList<Funcionario> _popularFuncionario(Guid empresa)
+        private static IList<Funcionario> popularFuncionario(Guid empresa)
         {
             return new List<Funcionario>()
             {
@@ -61,7 +61,7 @@ namespace app_prova_prismatec
         }
 
         //Método que altera o funcionário
-        private static void _alterarFuncionario(Empresa empresa)
+        private static void alterarFuncionario(Empresa empresa)
         {
             foreach (var item in empresa.Funcionarios)
             {
@@ -70,10 +70,10 @@ namespace app_prova_prismatec
         }
 
         //Método que cria e popula a empresa vinculando o funcionário a empresa
-        private static Empresa _popularEmpresa()
+        private static Empresa popularEmpresa()
         {
             var idEmpresa = Guid.NewGuid();
-            var funcionarios = _popularFuncionario(idEmpresa);
+            var funcionarios = popularFuncionario(idEmpresa);
             var empresa = new Empresa(idEmpresa, "84166365000180", "Cláudio e Heitor Alimentos Ltda", "Supermercado Passarinho", "1128904886", funcionarios);
             return empresa;
         }

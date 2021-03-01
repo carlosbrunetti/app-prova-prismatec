@@ -72,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Utils.cs" />
-    <Compile Include="Helpers\_Logger.cs" />
+    <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Domain\Interfaces\IEmpresa.cs" />
     <Compile Include="Domain\Interfaces\IFuncionario.cs" />
     <Compile Include="Domain\Models\Empresa.cs" />

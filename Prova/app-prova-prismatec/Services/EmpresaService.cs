@@ -21,7 +21,7 @@ namespace app_prova_prismatec.Services
         //Método que cria um arquivo no formato passado
         public void CriarArquivo()
         {
-            string path = Utils._recuperarDirectorioArquivo();
+            string path = Utils.RecuperarDirectorioArquivo();
             Utils.CriarArquivoJson(empresa, path);
 
         }

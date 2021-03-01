@@ -8,7 +8,7 @@ namespace app_prova_prismatec.Helpers
     public static class Utils
     {
         //Método que recupera o caminho do arquivo
-        public static string _recuperarDirectorioArquivo()
+        public static string RecuperarDirectorioArquivo()
         {
             return Path.Combine(ConfigurationSettings.AppSettings["CaminhoPasta"],
                 string.Concat(ConfigurationSettings.AppSettings["NomeArquivo"],

@@ -2,7 +2,7 @@
 
 namespace app_prova_prismatec.Helpers
 {    
-    public static class _Logger
+    public static class Logger
     {
         //Método que cria o Serialog
         public static void CriarLogger()
